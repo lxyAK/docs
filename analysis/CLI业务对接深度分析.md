@@ -1,5 +1,9 @@
 # feishu-cli vs wecom-cli 业务对接深度分析
 
+> **源码仓库：**
+> - wecom-cli: https://github.com/WecomTeam/wecom-cli
+> - feishu-cli: https://github.com/larksuite/cli
+
 ## 问题 1：SDK 确认
 
 **是的，`larksuite/oapi-sdk-go/v3` 就是官方 SDK！**
