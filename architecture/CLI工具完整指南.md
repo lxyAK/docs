@@ -1,5 +1,7 @@
 # CLI 工具完整指南 - feishu-cli vs wecom-cli 对比与自研方案
-
+> **源码仓库：**
+> - wecom-cli: https://github.com/WecomTeam/wecom-cli
+> - feishu-cli: https://github.com/larksuite/cli
 ---
 
 ## 第一部分：feishu-cli vs wecom-cli 技术方案对比
