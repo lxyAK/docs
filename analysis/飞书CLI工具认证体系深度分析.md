@@ -1,4 +1,8 @@
-# 飞书 oapi-sdk-go 与 cli 认证体系深度分析
+# 飞书认证体系深度分析：oapi-sdk-go 与 cli 架构详解
+
+> **源码仓库：**
+> - oapi-sdk-go: https://github.com/larksuite/oapi-sdk-go
+> - cli: https://github.com/larksuite/cli
 
 ## 一、整体架构关系
 
