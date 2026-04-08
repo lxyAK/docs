@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://api.github.com/repos/WecomTeam/wecom-cli/git/trees/main?recursive=1\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(x['path']\\) for x in data.get\\('tree',[]\\)]\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/WecomTeam/wecom-cli/main/package.json\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/WecomTeam/wecom-cli/main/src/auth/mod.rs\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/WecomTeam/wecom-cli/main/src/auth/bot.rs\")"
+    ]
+  }
+}
