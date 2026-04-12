@@ -21,8 +21,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 | 主目录 | 用途 | 二级目录示例 |
 |--------|------|-------------|
-| `analysis/` | 技术深度分析 | `openclaw/`、`cli/`、`bayiyuan/`、`deerflow/`、`taro/`、`claude-code/`、`colleague-skill/` |
-| `architecture/` | 架构设计/实施方案 | `cli/`、`bayiyuan/` |
+| `analysis/` | 技术深度分析 | `openclaw/`、`cli-tools/`、`bayiyuan/`、`deerflow/`、`taro/`、`claude-code/`、`colleague-skill/` |
+| `architecture/` | 架构设计/实施方案 | `cli-tools/`、`bayiyuan/` |
 | `deployment/` | 部署指南 | `coze-studio/` |
 | `guides/` | 使用指南 | `deerflow/`、`openclaw/`、`security/` |
 | `openclaw-source-analysis/` | OpenClaw 源码深度分析系列（独立专题） | — |

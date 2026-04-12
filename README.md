@@ -10,7 +10,7 @@
 docs/
 ├── analysis/                        # 技术分析文档
 │   ├── openclaw/                    #   OpenClaw 平台
-│   ├── cli/                         #   CLI 工具集
+│   ├── cli-tools/                    #   CLI 工具集（飞书+企业微信）
 │   ├── bayiyuan/                    #   八亿元项目
 │   ├── deerflow/                    #   DeerFlow
 │   ├── taro/                        #   Taro
@@ -18,7 +18,7 @@ docs/
 │   └── colleague-skill/             #   Colleague.Skill 开源项目
 │
 ├── architecture/                    # 架构文档
-│   ├── cli/                         #   CLI 工具集
+│   ├── cli-tools/                    #   CLI 工具集（飞书+企业微信）
 │   └── bayiyuan/                    #   八亿元项目
 │
 ├── deployment/                      # 部署文档
@@ -42,11 +42,11 @@ docs/
 | | [权限管控分析](./analysis/openclaw/权限管控分析.md) | 权限体系与管控方案 |
 | | [用户会话隔离与权限控制方案](./analysis/openclaw/用户会话隔离与权限控制方案.md) | 会话隔离机制 |
 | | [终端命令大全](./analysis/openclaw/终端命令大全.md) | OpenClaw CLI 完整命令 |
-| **cli** | [CLI业务对接深度分析](./analysis/cli/CLI业务对接深度分析.md) | CLI 与业务系统对接方案 |
-| | [CLI技术方案对比](./analysis/cli/CLI技术方案对比.md) | Go/Rust/Python 方案对比 |
-| | [自研CLI架构决策分析](./analysis/cli/自研CLI架构决策分析.md) | 自研 vs 现有方案决策 |
-| | [企业微信CLI工具认证体系深度分析](./analysis/cli/企业微信CLI工具认证体系深度分析.md) | 企微认证机制 |
-| | [飞书CLI工具认证体系深度分析](./analysis/cli/飞书CLI工具认证体系深度分析.md) | 飞书认证机制 |
+| **cli-tools** | [CLI业务对接深度分析](./analysis/cli-tools/CLI业务对接深度分析.md) | CLI 与业务系统对接方案 |
+| | [CLI技术方案对比](./analysis/cli-tools/CLI技术方案对比.md) | Go/Rust/Python 方案对比 |
+| | [自研CLI架构决策分析](./analysis/cli-tools/自研CLI架构决策分析.md) | 自研 vs 现有方案决策 |
+| | [企业微信CLI工具认证体系深度分析](./analysis/cli-tools/企业微信CLI工具认证体系深度分析.md) | 企微认证机制 |
+| | [飞书CLI工具认证体系深度分析](./analysis/cli-tools/飞书CLI工具认证体系深度分析.md) | 飞书认证机制 |
 | **bayiyuan** | [OpenClaw结合应用方案](./analysis/bayiyuan/OpenClaw结合应用方案.md) | 八亿元项目与 OpenClaw 集成 |
 | **deerflow** | [OpenClaw集成方案](./analysis/deerflow/OpenClaw集成方案.md) | DeerFlow 集成方案 |
 | **taro** | [多端架构重构可行性分析](./analysis/taro/多端架构重构可行性分析.md) | Taro 重构可行性评估 |
@@ -57,8 +57,8 @@ docs/
 
 | 项目 | 文档 | 简介 |
 |------|------|------|
-| **cli** | [CLI工具完整指南](./architecture/cli/CLI工具完整指南.md) | CLI 工具完整使用指南 |
-| | [CLI定制架构方案](./architecture/cli/CLI定制架构方案.md) | 定制化架构设计 |
+| **cli-tools** | [CLI工具完整指南](./architecture/cli-tools/CLI工具完整指南.md) | CLI 工具完整使用指南 |
+| | [CLI定制架构方案](./architecture/cli-tools/CLI定制架构方案.md) | 定制化架构设计 |
 | **bayiyuan** | [CLI实施方案](./architecture/bayiyuan/CLI实施方案.md) | 八亿元项目 CLI 实施方案 |
 
 ### deployment/ — 部署文档
