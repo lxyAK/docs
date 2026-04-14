@@ -1,6 +1,6 @@
 # CLI 与配置体系
 
-> 核心文件：`cli.py` (10K行) + `hermes_cli/` (~40个文件) + `hermes_constants.py`
+> 核心文件：`cli.py` (10,013行) + `hermes_cli/` (47个文件) + `hermes_constants.py`
 
 ---
 
@@ -29,17 +29,27 @@ hermes <subcommand>     # 子命令模式
 | 子命令 | 模块 | 功能 |
 |--------|------|------|
 | `hermes` | `cli.py` (TUI) | 启动交互对话 |
-| `hermes model` | `models.py` | 模型/Provider 选择 |
+| `hermes model` | `models.py` (1,933行) | 模型/Provider 选择 |
 | `hermes tools` | `tools_config.py` | 工具启用/禁用 |
-| `hermes config` | `config.py` | 配置管理 |
+| `hermes config` | `config.py` (3,306行) | 配置管理 |
 | `hermes gateway` | `gateway.py` | 网关管理 |
-| `hermes setup` | `setup.py` | 初始化向导 |
+| `hermes setup` | `setup.py` (3,138行) | 初始化向导 |
 | `hermes doctor` | `doctor.py` | 诊断问题 |
 | `hermes skills` | `skills_config.py` | 技能管理 |
 | `hermes plugins` | `plugins_cmd.py` | 插件管理 |
 | `hermes cron` | `cron.py` | 定时任务 |
+| `hermes auth` | `auth.py` (3,270行) | 认证管理 |
 | `hermes update` | — | 自更新 |
 | `hermes claw migrate` | `claw.py` | OpenClaw 迁移 |
+
+此外 `hermes_cli/` 还包含大量辅助模块（共 47 个 .py 文件）：
+`auth_commands.py`、`backup.py`、`banner.py`、`callbacks.py`、`clipboard.py`、
+`codex_models.py`、`colors.py`、`commands.py`、`copilot_auth.py`、`curses_ui.py`、
+`debug.py`、`default_soul.py`、`dump.py`、`env_loader.py`、`logs.py`、`main.py`、
+`mcp_config.py`、`memory_setup.py`、`model_normalize.py`、`model_switch.py`、
+`nous_subscription.py`、`pairing.py`、`platforms.py`、`profiles.py`、`providers.py`、
+`runtime_provider.py`、`skin_engine.py`、`status.py`、`tips.py`、`uninstall.py`、
+`web_server.py`、`webhook.py` 等。
 
 ---
 

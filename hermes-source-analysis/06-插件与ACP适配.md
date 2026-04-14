@@ -12,10 +12,16 @@
 plugins/
 ├── __init__.py
 ├── context_engine/        # 上下文引擎插件
+│   └── honcho/            # Honcho 上下文引擎
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── client.py
+│       ├── plugin.yaml
+│       └── session.py
 └── memory/                # 记忆后端插件
     ├── mem0/              # Mem0 集成
     │   ├── __init__.py
-    │   ├── plugin.yaml    # 元数据
+    │   ├── plugin.yaml
     │   └── README.md
     ├── supermemory/       # Supermemory 集成
     ├── holographic/       # 全息记忆（本地向量）
@@ -25,7 +31,10 @@ plugins/
     │   ├── store.py
     │   └── retrieval.py
     ├── retaindb/          # RetainDB
-    └── byterover/         # Byterover
+    ├── byterover/         # Byterover
+    ├── honcho/            # Honcho 方言式用户建模
+    ├── hindsight/         # 回溯式记忆
+    └── openviking/        # OpenViking 集成
 ```
 
 ### 1.2 插件发现
@@ -196,20 +205,29 @@ class MyMemoryProvider(MemoryProvider):
     @property
     def name(self):
         return "my-memory"
-    
-    def get_system_prompt(self):
-        return "你有一个外部记忆系统..."
-    
-    def prefetch(self, user_message):
-        # 检索相关记忆
-        return retrieved_context
-    
-    def sync(self, user_msg, assistant_resp):
-        # 存储新记忆
+
+    def is_available(self) -> bool:
+        """检查依赖和配置是否就绪"""
+        return True
+
+    def initialize(self, session_id: str, **kwargs) -> None:
+        """会话初始化"""
         pass
-    
+
+    def system_prompt_block(self) -> str:
+        """返回注入系统提示的静态信息"""
+        return "你有一个外部记忆系统..."
+
+    def prefetch(self, query: str, *, session_id: str = "") -> str:
+        """检索相关记忆"""
+        return retrieved_context
+
+    def sync_turn(self, user_content: str, assistant_content: str, *, session_id: str = "") -> None:
+        """存储新记忆"""
+        pass
+
     def register(self):
-        # 注册到 MemoryManager
+        """注册到 MemoryManager"""
         pass
 ```
 
@@ -223,12 +241,29 @@ class MyContextEngine(ContextEngine):
     @property
     def name(self):
         return "my-engine"
-    
-    def should_compress(self, prompt_tokens=None):
-        # 自定义压缩触发逻辑
+
+    # 必须维护的状态属性（run_agent.py 直接读取）
+    last_prompt_tokens: int = 0
+    last_completion_tokens: int = 0
+    last_total_tokens: int = 0
+    threshold_tokens: int = 0
+    context_length: int = 0
+
+    def update_from_response(self, usage) -> None:
+        """从 API 响应更新 token 用量"""
         pass
-    
+
+    def should_compress(self, prompt_tokens=None):
+        """自定义压缩触发逻辑"""
+        pass
+
     def compress(self, messages):
-        # DAG 压缩、RAG 替代等
+        """DAG 压缩、RAG 替代等"""
+        pass
+
+    def on_session_start(self):
+        pass
+
+    def on_session_end(self):
         pass
 ```

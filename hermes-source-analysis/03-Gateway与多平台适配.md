@@ -68,19 +68,21 @@ Telegram 的消息限制 4096 是 UTF-16 编码单元数，不是 Unicode 码点
 |------|------|------|------|
 | Telegram | `telegram.py` | 2,786 | 语音转写、贴纸缓存、内联按钮 |
 | Discord | `discord.py` | 2,963 | Slash 命令、线程、嵌入消息 |
-| Slack | `slack.py` | ~1,500 | Socket Mode、Block Kit |
-| WhatsApp | `whatsapp.py` | ~1,500 | 桥接模式、语音备忘录 |
-| Signal | `signal.py` | ~1,200 | signal-cli 桥接 |
+| Slack | `slack.py` | 1,670 | Socket Mode、Block Kit |
+| WhatsApp | `whatsapp.py` | 989 | 桥接模式、语音备忘录 |
+| Signal | `signal.py` | 825 | signal-cli 桥接 |
 | **飞书** | `feishu.py` | **3,950** | 事件订阅、卡片消息、群聊 |
 | **微信** | `weixin.py` | **1,829** | 桥接模式 |
 | Matrix | `matrix.py` | 2,005 | Element 生态 |
-| Mattermost | `mattermost.py` | ~1,200 | WebSocket |
-| HomeAssistant | `homeassistant.py` | ~800 | 智能家居 |
-| Email | `email.py` | ~1,000 | SMTP/IMAP |
+| Mattermost | `mattermost.py` | 733 | WebSocket |
+| HomeAssistant | `homeassistant.py` | 449 | 智能家居 |
+| Email | `email.py` | 625 | SMTP/IMAP |
 | API Server | `api_server.py` | 1,904 | HTTP REST API |
-| DingTalk | `dingtalk.py` | ~1,200 | 钉钉 |
-| WeCom | `wecom.py` | ~1,200 | 企业微信 |
-| Webhook | `webhook.py` | ~600 | 通用 Webhook |
+| DingTalk | `dingtalk.py` | 333 | 钉钉 |
+| WeCom | `wecom.py` | 1,430 | 企业微信 |
+| Webhook | `webhook.py` | 671 | 通用 Webhook |
+| SMS | `sms.py` | 373 | 短信 |
+| BlueBubbles | `bluebubbles.py` | 897 | iMessage 桥接 |
 
 ### 2.3 飞书适配器 (`feishu.py`) — 最大平台文件
 
