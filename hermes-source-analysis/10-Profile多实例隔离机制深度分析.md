@@ -592,6 +592,51 @@ Profile 的设计灵感类似 Git Worktree：
 - **Agent 间需要通信**：Profile 之间完全隔离，没有消息通道
 - **动态创建/销毁 Agent**：Profile 创建需要 shell 命令，不支持编程接口
 
+### 11.4 待验证假设：Hermes 是否通过终端工具间接操作多个 Profile
+
+> **状态：未验证** | 待通过实际运行环境的配置文件和日志确认
+
+**背景**：在与 Hermes 的实际对话中，Hermes 展示了跨 Profile 的 cron 管理 — 用户请求给"李医生"（work-agent）和"王营养师"（personal-agent）分别设置提醒后，查询不同 Profile 的 cron 列表时，cron job 确实按 Profile 正确分离显示。
+
+**假设**：Hermes 是通过 `terminal` 工具以子进程方式调用 `hermes -p <name>` 命令来实现跨 Profile 操作的：
+
+```
+父进程（用户对话的 Hermes，始终是同一个 Profile）
+    │
+    ├── terminal: hermes -p work-agent cron add --schedule "30 8 15 4 *" ...
+    │       └── 新进程，HERMES_HOME=~/.hermes/profiles/work-agent，写入后退出
+    │
+    ├── terminal: hermes -p personal-agent cron add --schedule "30 7 * * *" ...
+    │       └── 新进程，HERMES_HOME=~/.hermes/profiles/personal-agent，写入后退出
+    │
+    ├── terminal: hermes -p work-agent cron list
+    │       └── 新进程，读取 work-agent/cron/ 目录，返回结果后退出
+    │
+    └── 父进程 HERMES_HOME 始终未变
+```
+
+**支持假设的证据**：
+
+1. **cron 目录物理隔离**：cron 存储在 `get_hermes_home() / "cron"`，不同 Profile 指向不同目录。截图显示 cron 确实按 Profile 正确分离。
+2. **`-p` 是进程级参数**：`_apply_profile_override()` 在进程启动时解析 `sys.argv`，设置 `HERMES_HOME` 环境变量，只影响当前进程。
+3. **源码中不存在调度框架**：`agent.dispatch`、`dispatch.rules`、`trigger` 等关键词在整个源码中零匹配。
+4. **terminal 工具能力**：Hermes 的 terminal 工具可以执行任意 shell 命令，包括 `hermes -p <name>` 子命令。
+
+**验证方法**（待执行）：
+
+| 验证项 | 操作 | 预期结果 |
+|--------|------|----------|
+| Profile 是否实际存在 | 运行 `hermes profile list` | 应显示 work-agent、dev-agent、personal-agent |
+| cron 文件是否按目录分离 | 检查 `~/.hermes/profiles/work-agent/cron/` 和 `personal-agent/cron/` | 各自目录下应有独立的 cron 配置文件 |
+| 终端执行日志 | 检查 Hermes 会话日志中的 terminal 工具调用记录 | 应能看到 `hermes -p <name>` 开头的 shell 命令 |
+| 父进程 Profile | 检查运行中 Hermes 进程的环境变量 | `HERMES_HOME` 应始终指向一个固定路径，未发生运行时切换 |
+
+**如果假设成立的影响**：
+
+- Hermes 描述的"触发词匹配引擎"、"调度框架"是 LLM 自行推理 + shell 命令的包装，不是代码层面的功能
+- 这种方式可行但有局限：子进程无法共享父进程的对话上下文，只能操作文件系统级别的持久化内容（cron、记忆文件等）
+- Hermes 的角色识别完全依赖 LLM 的上下文理解，没有确定性的匹配逻辑
+
 ---
 
 ## 十二、源码关键路径索引
