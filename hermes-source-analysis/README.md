@@ -18,3 +18,5 @@
 | 06 | [插件与 ACP 适配](06-插件与ACP适配.md) | 插件系统、ACP 协议适配、MCP 集成、外部记忆后端 |
 | 07 | [调度与自动化](07-调度与自动化.md) | Cron 调度器、委托子 Agent、RL 训练环境、批量运行 |
 | 08 | [安全策略分析](08-安全策略分析.md) | Prompt 注入防护、命令审批、沙箱隔离、路径安全 |
+| 09 | [多Agent协作机制深度分析](09-多Agent协作机制深度分析.md) | Delegate Tool 层级委托、MoA 多模型投票、ACP 协议、与 CrewAI/AutoGen/LangGraph 对比 |
+| 10 | [Profile多实例隔离机制深度分析](10-Profile多实例隔离机制深度分析.md) | HERMES_HOME 重定向、Profile CRUD、Wrapper 别名、Gateway Profile 感知、子进程隔离、导出/导入 |
