@@ -53,19 +53,19 @@
 
 | 指标 | 数值 |
 |------|------|
-| 核心源码 | ~3570 个 TS 文件，~613K 行 |
-| 扩展源码 | ~2620 个 TS 文件 |
-| 总文件数 | ~6200+ TS 文件 |
-| Channel 插件 | ~35 个（飞书、Telegram、Discord 等） |
+| 核心源码 | ~3800 个 TS 文件，~657K 行 |
+| 扩展源码 | ~2650 个 TS 文件 |
+| 总文件数 | ~6500+ TS 文件 |
+| Channel 插件 | 24 个（飞书、Telegram、Discord 等） |
 | Provider 插件 | ~25 个（OpenAI、Anthropic、Google 等） |
-| 内置 Skills | ~20 个 |
+| 内置 Skills | 53 个 |
 
 ---
 
 ## 🔧 技术栈
 
 - **语言**：TypeScript (ESM, strict mode)
-- **运行时**：Node.js ≥ 22.12
+- **运行时**：Node.js ≥ 22.14.0
 - **包管理**：pnpm
 - **构建**：tsdown (esbuild/rollup)
 - **测试**：Vitest
